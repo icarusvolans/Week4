@@ -1,0 +1,39 @@
+
+<html xmlns:c="">
+<body>
+<tr><tb>are you there?</tb></tr>
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+<br>
+<form action="/create-message" method="post">
+    <input type="text" placeholder="Enter your message" name="messageText" width="200"/><br>
+    <input type="hidden" value="{{replyId}}" name="replyId"/>
+    <button type="submit">Post Message</button>
+</form>
+<br>
+<form action="/edit-message" method="post">
+    <input type="int" placeholder="Enter # to edit" name="editNum" width="200"/><br>
+    <input type="text" placeholder="Edit your message" name="messageEdit" width="200"/><br>
+    <input type="hidden" value="{{replyId}}" name="replyId"/>
+    <button type="submit">Edit Message</button>
+</form>
+<br>
+<form action="/delete-message" method="post">
+    <input type="int" placeholder="Enter # to delete" name="deleteNum" width="200"/><br>
+    <input type="hidden" value="{{replyId}}" name="replyId"/>
+    <button type="submit">Delete Message</button>
+</form>
+<br>
+<br>
+Messages by {{sessionName}}:
+
+{{#messages}}
+<br>
+{{count}}. {{text}}   <button type="submit">Delete</button>
+
+{{/messages}}
+<!--Message error(s): {{error}}:-->
+{{error}}
+</body>
+</html>
